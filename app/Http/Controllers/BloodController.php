@@ -31,6 +31,7 @@ class BloodController extends Controller
       'name' => 'required|string|unique:blood,name',
       'category_id' => 'required',
       'alamat' => 'required|string',
+      'no_tlp' => 'required|string',
       'keterangan' => 'required|string',
     ]);
 

@@ -34,6 +34,7 @@
                   <th class="center">Nama</th>
                   <th class="center">Type Blood</th>
                   <th class="center">Alamat</th>
+                  <th class="center">No Tlp</th>
                   <th class="center">Keterangan</th>
                   <td colspan="2"></td>
                 </tr>
@@ -45,6 +46,7 @@
                       <td class="center">{{ $blood->name}}</td>
                       <td class="center">{{ $blood->category->name}}</td>
                       <td class="center">{{ $blood->alamat}}</td>
+                      <td class="center">{{ $blood->no_tlp}}</td>
                       <td class="center">{{ $blood->keterangan}}</td>
                       <td>
                           <a href="blood/{{$blood->id .'/edit'}}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-edit"></i></a>

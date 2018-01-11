@@ -26,12 +26,8 @@ class AuthController extends Controller
    	 	'api_token'	=> bcrypt($request->email)
    	 ]); 
 
-   	if ($validator->fails())
-      {
-     	
-     	return response()->json(['return' => '0','eror' => 'Your credential is wrong']);
-     }
-
+     	return response()->json([$user,'return' => '1','eror' => 'Succes']);
+   
 
    	$respone = fractal()
    		->item($user)
@@ -42,7 +38,7 @@ class AuthController extends Controller
    		->toArray();
 
 
-   		return response()->json([$respone,'return' => '1','message' => 'succes registereds']);
+   		return response()->json([$respone,'return' => '0','message' => 'Your credential is wrong']);
    }
 
    public function login(Request $request, User $user)
