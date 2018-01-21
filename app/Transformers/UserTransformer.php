@@ -11,7 +11,7 @@ class UserTransformer extends TransformerAbstract
 {
 
 	protected $availableIncludes = [
-		'posts'
+		'blood'
 	];
 
 	public function transform(User $user)
@@ -25,10 +25,10 @@ class UserTransformer extends TransformerAbstract
 		];
 	}
 
-	public function includePosts(User $user)
+	public function includeBlood(User $user)
 	{
-		$posts = $user->posts()->latestFirst()->get();
+		$blood = $user->blood()->latestFirst()->get();
 
-		return $this->collection($posts, new PostTransformer);
+		return $this->collection($blood, new BloodTransformer);
 	}
 }

@@ -8,8 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Transformers\BloodTransformer;
 use Auth;
 
-class BloodController extends Controller
-{
+class BloodController extends Controller{
     public function add(Request $request, Blood $blood)
     {
     	$this->validate($request, [
@@ -42,26 +41,26 @@ class BloodController extends Controller
     {
         $this->authorize('update', $blood);
 
-        $post->name         = $request->get('name', $post->name);
-        $post->category_id  = $request->get('category_id', $post->category_id);
-        $post->alamat       = $request->get('alamat', $post->alamat);
-        $post->longitude    = $request->get('longitude', $post->longitude);
-        $post->latitude     = $request->get('latutude', $post->latitude);
-        $post->keterarangan = $request->get('keterangan', $post->keterangan);
-        $post->save();
+        $blood->name         = $request->get('name', $blood->name);
+        $blood->category_id  = $request->get('category_id', $blood->category_id);
+        $blood->alamat       = $request->get('alamat', $blood->alamat);
+        $blood->longitude    = $request->get('longitude', $blood->longitude);
+        $blood->latitude     = $request->get('latutude', $blood->latitude);
+        $blood->keterarangan = $request->get('keterangan', $blood->keterangan);
+        $blood->save();
 
         return fractal()
-            ->item($post)
+            ->item($blood)
             ->transformWith(new BloodTransformer)
             ->toArray();
     }
 
-    public function delete(Blood $blodd)
+    public function delete(Blood $blood)
     {
 
-        $this->authorize('delete', $post);
+        $this->authorize('delete', $blood);
 
-        $post->delete();
+        $blood->delete();
 
         return response()->json([
             'message' => "Post Deleteed",

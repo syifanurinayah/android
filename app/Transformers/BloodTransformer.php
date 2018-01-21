@@ -17,7 +17,7 @@ class BloodTransformer extends TransformerAbstract
 			'longitude'		=> $blood->longitude,
 			'latitude'		=> $blood->latitude,
 			'keterangan'	=> $blood->keterangan,
-			'published'		=> $blood->created_at->diffForHumans(),
+			//'published'		=> $blood->created_at->diffForHumans(),
 		];
 	}
 }
